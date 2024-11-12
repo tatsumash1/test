@@ -157,7 +157,7 @@ function doneCommand(array $arguments)
 
             $todos[$index] = array_merge($todos[$index], 
             [
-                'completed' => false,
+                'completed' => true,
                 'updated_at' => time(),
                 'completed_at' => null,
             ]);
