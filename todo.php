@@ -11,6 +11,8 @@
 //php todo.php remove 1 (rm)
 //php todo.php report error
 
+require_once __DIR__ . '/boot.php/';
+
 function main(array $arguments): void
 {
     array_shift($arguments);
