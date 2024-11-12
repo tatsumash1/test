@@ -48,7 +48,7 @@ function main(array $arguments): void
 }
 
 
-function addCommand(array $arguments) //done
+function addCommand(array $arguments)
 {
     $title = array_shift($arguments);
 
@@ -80,10 +80,9 @@ function addCommand(array $arguments) //done
         file_put_contents( $filePath,serialize($todos));
     }
     file_put_contents($filePath, $title. "\n", FILE_APPEND);
-
 }
 
-function removeCommand(array $arguments) // X
+function removeCommand(array $arguments)
 {
     $fileName = date('Y-m-d') . '.txt';
     $filePath = __DIR__ . '/data/' . $fileName;
@@ -124,7 +123,7 @@ function removeCommand(array $arguments) // X
         file_put_contents( $filePath, serialize($todos));
 }
 
-function doneCommand(array $arguments)/// done
+function doneCommand(array $arguments)
 {
     $fileName = date('Y-m-d') . '.txt';
     $filePath = __DIR__ . '/data/' . $fileName;
@@ -165,7 +164,7 @@ function doneCommand(array $arguments)/// done
 
         file_put_contents( $filePath, serialize($todos));
 }
-function undoneCommand(array $arguments)/// done
+function undoneCommand(array $arguments)
 {
     
     $fileName = date('Y-m-d') . '.txt';
@@ -206,7 +205,7 @@ function undoneCommand(array $arguments)/// done
 
         file_put_contents( $filePath, serialize($todos));
 }
-function listCommand(array $arguments) //done
+function listCommand(array $arguments)
 {
     $fileName = date('Y-m-d') . '.txt';
     $filePath = __DIR__ . '/data/' . $fileName;
@@ -228,12 +227,6 @@ function listCommand(array $arguments) //done
             return;
         }
 
-        // $result = array_map(function($todo) {
-        //     return $todo['title'];  
-        // }, $todos);
-
-        // echo implode("\n", $result);
-
         foreach ($todos as $index  => $todo)
 
         {
@@ -241,10 +234,8 @@ function listCommand(array $arguments) //done
             ($index+1),
             $todo['completed'] ? 'X': ' ', 
             $todo ['title']);
-            //echo ($index +1) . " " .$todo['title'] . PHP_EOL;
         }
 
-        // var_dump($todos);
 }
 
 main($argv);
