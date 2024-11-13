@@ -32,3 +32,16 @@ function getRepositoryPath(?int $time): string
     $filePath = ROOT . '/data/' . $fileName;
     return $filePath;
 }
+
+function getTodosOrFail(?int $time = null): array
+{
+    $todos = getTodos($time);
+
+    if (empty($todos))
+    {
+        echo 'Nothing to do here' . PHP_EOL;
+        exit;
+    }
+
+    return $todos;
+}

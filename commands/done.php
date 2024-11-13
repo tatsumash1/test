@@ -2,31 +2,18 @@
 
 function doneCommand(array $arguments)
 {
-    $todos = getTodos();
-
-    if (empty($todos))
-    {
-        echo "No todos found.\n";
-        return;
-    }
+    $todos = getTodosOrFail();
 
     $now = time();
 
-    foreach ($arguments as $num)
-    {
-        $index = (int)$num - 1;
-        if (!isset($todos[$index]))
-        {
-            continue;
-        }
 
-        $todos[$index] = array_merge($todos[$index], 
-        [
+    $todos = mapTodos($todos, $arguments, function($todo) use ($now) {
+        return array_merge($todo, [
             'completed' => true,
-            'updated_at' => time(),
+            'updated_at' => $now,
             'completed_at' => null,
         ]);
-    }
+    });
 
     storeTodos($todos);
 }

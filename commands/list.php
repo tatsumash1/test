@@ -2,13 +2,7 @@
 
 function listCommand(array $arguments)
 {
-    $todos = getTodos();
-
-        if (empty($todos))
-        {
-            echo "No todos found.\n";
-            return;
-        }
+    $todos = getTodosOrFail();
 
         foreach ($todos as $index  => $todo)
 
