@@ -41,6 +41,9 @@ function main(array $arguments): void
             removeCommand($arguments);
             break;
 
+        case 'report':
+            reportCommand($arguments);
+            break;
 
         default:
             echo "Unknown command: $command\n";

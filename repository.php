@@ -10,11 +10,11 @@ function getTodos(?int $time = null): array
     }
 
     $content = file_get_contents($filePath);
-        $todos = unserialize($content, [
-        'allowed_classes' => false
-        ]);
+    $todos = unserialize($content, [
+    'allowed_classes' => false
+    ]);
 
-        return is_array($todos) ? $todos : [];
+    return is_array($todos) ? $todos : [];
 }
 
 function storeTodos(array $todos, ?int $time = null)
