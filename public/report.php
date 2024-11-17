@@ -43,36 +43,10 @@ $title = 'Todoist :: Report';
     ];
 
 
-    echo view('pages/report',[
+    echo view('layout',[
         'title' => $title,
-        'report' => $report,
+        'content' => view('pages/report',[
+            'report' => $report,
+        ]),
     ]);
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title><?php echo $title; ?></title>
-</head>
-<body>
-    <section class = "content">
-        <header>
-        <span class = "icon">📝</span>
-        <h1><?= $title; ?></h1>
-        </header>
-        <main>
-            <?php foreach ($report as $line):?>
-
-            <p><?= $line;?></p>
-
-            <?php endforeach;?>
-        </main>
-        <footer>
-            &copy; <?= date('Y')?> myproject
-        </footer>
-    </section>
-</body>
-</html>
+    exit;
